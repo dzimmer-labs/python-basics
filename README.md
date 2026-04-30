@@ -131,9 +131,11 @@ print(rounded_two_decimals)  # Output: 3.33
 ## Ejercicios
 ### Ejercicio 1
 Sea la siguiente identidad trigonométrica:
+
 $$
 cos^2\frac{x}{2} = \frac{\tan{x} + \sin{x}}{2\sin{x}}
 $$
+
 Verifica que esta identidad es cierta calculando ambos miembros de la ecuación, sustituyendo $x$ por $x = \frac{\pi}{5}$.
 
 <details>
@@ -154,9 +156,11 @@ print("Lado derecho:", right_side)
 
 ### Ejercicio 2
 Un objeto con una temperatura inicial $T_0$ se introduce en el instante $t=0$  dentro de una cámara que tiene una temperatura constante $T_S$. Entonces, el objeto experimenta un cambio de temperatura que se corresponde con la ecuación de enfriamiento de Newton:
+
 $$
 T = T_S + (T_0 - T_s) e^{-kt}
 $$
+
 donde $T$ es la temperatura del objeto en el instante $t$, y $k$ es una constante de enfriamiento.
 
 Una lata de refresco, con una temperatura de 48°C se introduce en un refrigerador que tiene en su interior una temperatura de 3°C. Calcula, redondeando el resultado a dos decimales, la temperatura de la lata después de tres horas. Considera k = 0.45.
