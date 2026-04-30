@@ -1,12 +1,16 @@
 # Conceptos básicos de Python
 >[!Important]
-> Estas prácticas asumen que tienes acceso al CESGA y que tienes activada la conexión VPN. Si no es así, por favor, sigue las instrucciones que se facilitan [aquí](https://github.com/dzimmer-labs/learn-hpc-practically/blob/master/data/text/install-cesga-vpn.md). También se asume que tiene Visual Studio Code instalado.
+> Estas prácticas asumen que tienes acceso al CESGA y que tienes activada la conexión VPN. Si no es así, por favor, sigue las instrucciones que se facilitan [aquí](./data/text/install-cesga-vpn.md). También se asume que tiene Visual Studio Code instalado.
+
+>[!Tip]
+> Si tienes `pip` instalado, puedes usar `ipython` para ejecutar pruebas rápidas de código. Instala `ipython` ejecutando: `pip install ipython` en la terminal / Power Shell. Luego, escribe `ipython` en la terminal/Power Shell para iniciar el intérprete interactivo de Python. Para salir, escribe `exit()` o presiona `Ctrl + D`.
 
 Python es un lenguaje de programación de alto nivel, interpretado y de propósito general. Es conocido por su sintaxis clara y legible, lo que lo hace ideal como primer lenguaje de programación. En estas prácticas aprenderemos a utilizar Python como una calculadora avanzada, a evaluar condiciones y a usar bucles para repetir tareas. Estas son habilidades fundamentales que te permitirán resolver una amplia variedad de problemas computacionales.
 
 # Índice
 - [Conceptos básicos de Python](#conceptos-básicos-de-python)
 - [Índice](#índice)
+- [Preparación del entorno de trabajo](#preparación-del-entorno-de-trabajo)
 - [Práctica 1: Variables y tipos de datos](#práctica-1-variables-y-tipos-de-datos)
   - [Ejercicios](#ejercicios)
     - [Ejercicio 1](#ejercicio-1)
@@ -29,6 +33,17 @@ Python es un lenguaje de programación de alto nivel, interpretado y de propósi
     - [Ejercicio 2](#ejercicio-2-2)
     - [Ejercicio 3 *(extra)*](#ejercicio-3-extra-1)
 
+# Preparación del entorno de trabajo
+A lo largo de las prácticas se pedirá que pruebes fragmentos de código y que realices ejercicios. Para ello, crea un directorio temporal y abrelo con Visual Studio Code. A medida que las prácticas avancen, crea tantos archivos `.py` en ese directorio como consideres necesario. El objetivo es realizar pruebas rápidas, por lo que no es necesario crear un proyecto formal ni una estructura de archivos organizada.
+
+La primera vez que abras un archivo `.py` en Visual Studio Code, te preguntará si quieres instalar la extensión de Python. Acepta la instalación. Luego, para ejecutar el código, simplemente pulsa sobre el botón con el símbolo de "play" rodeado en la siguiente imagen:
+
+![Ejecutar código en Visual Studio Code](./data/img/vs-code-run.png)
+
+Se debería abrir una terminal y mostrar el resultado de la ejecución.
+
+Si lo prefieres, puedes usar directamente `ipython`, pero no se guardarán los fragmentos de código que ejecutes.
+
 # Práctica 1: Variables y tipos de datos
 En Python, puedes declarar una variable simplemente asignándole un valor. No es necesario especificar el tipo de dato, ya que Python lo infiere automáticamente. Aquí tienes algunos ejemplos:
 
@@ -43,10 +58,10 @@ is_active = True # Booleano
 Para realizar operaciones básicas con variables, puedes usar los operadores aritméticos:
 
 ```python
-# Operaciones aritméticas
 x = 10
 y = 3.14
 
+# Operaciones aritméticas
 addition = x + y      # Suma
 difference = x - y # Resta
 product = x * y   # Multiplicación
@@ -63,6 +78,8 @@ import math
 A partir de ahí, se pueden usar las siguientes funciones y constantes matemáticas (entre otras):
 
 ```python
+import math
+
 # Operaciones avanzadas
 sqrt = math.sqrt(x)    # Raíz cuadrada
 sin_x = math.sin(x)    # Seno de x
@@ -100,11 +117,15 @@ e = math.sin(x)**2 + math.cos(x)**2
 print(e)
 ```
 
-Por último, para redondear podemos usar la función `round()`, que toma dos argumentos: el número a redondear y el número de decimales del redondeo. Por ejemplo:
+Por último, para redondear podemos usar la función `round()`, que toma dos argumentos: el número a redondear y el número de decimales del redondeo. Si no se especifica el número de decimales, se redondeará al entero más cercano. Por ejemplo:
 ```python
 number = 10/3
-rounded_number = round(number, 2)
-print(rounded_number)  # Output: 3.33
+
+rounded = round(number)
+rounded_two_decimals = round(number, 2)
+
+print(rounded)  # Output: 3
+print(rounded_two_decimals)  # Output: 3.33
 ```
 
 ## Ejercicios
@@ -116,13 +137,16 @@ $$
 Verifica que esta identidad es cierta calculando ambos miembros de la ecuación, sustituyendo $x$ por $x = \frac{\pi}{5}$.
 
 <details>
-<summary style="text-align: right;">Ver resultado</summary>
+<summary style="text-align: right;">Ver respuesta</summary>
 
 ```python
 import math
+
 x = math.pi / 5
+
 left_side = math.cos(x / 2) ** 2
 right_side = (math.tan(x) + math.sin(x)) / (2 * math.sin(x))
+
 print("Lado izquierdo:", left_side)
 print("Lado derecho:", right_side)
 ```
@@ -140,7 +164,7 @@ Una lata de refresco, con una temperatura de 48°C se introduce en un refrigerad
 Primero deben definirse todas las variables y seguidamente se calculará la temperatura usando un solo comando.
 
 <details>
-<summary style="text-align: right;">Ver resultado</summary>
+<summary style="text-align: right;">Ver respuesta</summary>
 
 ```python
 T0 = 48
@@ -169,18 +193,22 @@ $$
 ## 2.1. Evaluación de condiciones
 Una de las características más destacables de los lenguajes de programación es la capacidad de evaluar condiciones y responder ante ellas de una u otra forma según su resultado. La evaluación de una condición solo puede dar como resultado dos valores: verdadero (True) o falso (False). Para evaluar condiciones se pueden emplear los siguientes operadores de comparación:
 
-- `==`: Igual a
-- `!=`: Distinto de
-- `<`: Menor que
-- `>`: Mayor que
-- `<=`: Menor o igual que
-- `>=`: Mayor o igual que
+| Operador | Significado         |
+|----------|---------------------|
+| `==`     | Igual a             |
+| `!=`     | Distinto de         |
+| `<`      | Menor que           |
+| `>`      | Mayor que           |
+| `<=`     | Menor o igual que   |
+| `>=`     | Mayor o igual que   |
 
-Y para agrupar varias condiciones se pueden usar los operadores:
+Para agrupar varias condiciones se pueden usar los operadores:
 
-- `and`: Y lógico
-- `or`: O lógico
-- `not`: Negación lógica
+| Operador | Significado     |
+|----------|-----------------|
+| `and`    | Y lógico        |
+| `or`     | O lógico        |
+| `not`    | Negación lógica |
 
 Por ejemplo, ejecuta:
 ```python
@@ -201,6 +229,7 @@ is_rich = income > 2000
 
 print("Is the person saving money?: ", is_saving)
 print("Is the person rich?: ", is_rich)
+print("Is the person saving money and rich?: ", is_saving and is_rich)
 ```
 
 ## 2.2. Estructuras de control condicionales
@@ -215,6 +244,13 @@ if x > 5:
 ```
 
 Como la condición `x > 5` es verdadera, se ejecutará el bloque de código dentro del `if`. Observa como las líneas afectadas por el `if` están indentadas (con sangría). En Python, la indentación es crucial para definir la lógica del programa. Para añadir una sangría, puedes usar la tecla Tab o cuatro espacios.
+
+La estructura básica de un bloque `if` es la siguiente:
+
+```
+if <condición>:
+    <código a ejecutar si la condición es verdadera>
+```
 
 Para añadir condiciones adicionales se pueden usar los operadores `elif` (else if) y `else`. Por ejemplo:
 
@@ -290,7 +326,7 @@ Escribe un programa que simule una partida de piedra, papel o tijera entre el us
 4. El programa muestra el resultado de la partida (quién ha ganado o si ha sido un empate).
 
 <details>
-<summary style="text-align: right;">Ver resultado</summary>
+<summary style="text-align: right;">Ver respuesta</summary>
 
 ```python
 import random
@@ -357,8 +393,11 @@ sequence = [0, 1, 2, 3, 4] # La función range(5) genera esta secuencia de núme
 for i in sequence:
     print(i)
 ```
+
+La función `range(n)` genera una secuencia de números enteros desde 0 hasta n-1. Si quieres generar una secuencia que empiece en un número diferente a 0, puedes usar `range(start, stop)`, donde `start` es el número inicial y `stop` es el número final (exclusivo). Por ejemplo, `range(2, 7)` generará la secuencia 2, 3, 4, 5, 6.
+
 > [!Note]
-> Observa que el número 5 no se incluye en la secuencia generada por `range(5)`. Python usa un sistema de indexación basado en cero, lo que significa que el primer elemento de una secuencia se le asigna el índice 0. Esto también se aplica a las listas, tuplas y diccionarios.
+> Observa que el número 5 no se incluye en la secuencia generada por `range(5)`. Python usa un **sistema de indexación basado en cero**, lo que significa que el primer elemento de una secuencia se le asigna el índice 0. Esto también se aplica a las listas, tuplas y diccionarios.
 
 ## 3.2. Bucle `while`
 El bucle `while` no depende de un iterable, sino que se ejecuta mientras una condición sea verdadera. La condición se evalúa **antes de cada iteración**, y si es falsa, el bucle se detiene. Por ejemplo:
@@ -388,3 +427,15 @@ Escribe un programa que solicite al usuario un número entero positivo y luego i
 ...
 5 x 10 = 50
 ```
+
+<details>
+<summary style="text-align: right;">Ver respuesta</summary>
+
+```python
+number = int(input("Introduce un número entero positivo: "))
+for i in range(1, 11):
+    result = number * i
+    print(f"{number} x {i} = {result}")
+```
+
+</details>
