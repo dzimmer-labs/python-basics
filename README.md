@@ -176,7 +176,7 @@ Ts = 3
 k = 0.45
 t = 3
 
-T = round(Ts + (T0 - Ts) ** (-k * t), 2)
+T = round(Ts + (T0 - Ts) * math.e ** (-k * t), 2)
 ```
 </details>
 
@@ -299,6 +299,9 @@ name = input("¿Cuál es tu nombre? ")
 print("Hola, " + name)
 ```
 Durante la ejecución, el programa se detendrá en la primera línea, imprimirá por la terminal el mensaje "¿Cuál es tu nombre? " y esperará a que el usuario introduzca su nombre. Una vez el usuario pulse Enter, la variable "name" almacenará la respuesta del usuario.
+
+>[!Note]
+> La función `input()` siempre **devuelve una cadena de texto (string)**. Si quieres convertir la entrada del usuario a otro tipo de dato, como un número entero o un número flotante, puedes usar las funciones `int()` o `float()`, respectivamente.
 
 Teniendo esto en cuenta, escribe un programa que:
 1. Solicite al usuario su edad
