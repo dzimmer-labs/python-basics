@@ -1,4 +1,5 @@
 # Conceptos básicos de Python
+![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC_BY--SA_4.0-lightgrey.svg)
 >[!Important]
 > Estas prácticas asumen que tienes acceso al CESGA y que tienes activada la conexión VPN. Si no es así, por favor, sigue las instrucciones que se facilitan [aquí](./data/text/install-cesga-vpn.md). También se asume que tiene Visual Studio Code instalado.
 
