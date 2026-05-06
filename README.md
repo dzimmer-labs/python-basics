@@ -32,6 +32,7 @@ Python es un lenguaje de programación de alto nivel, interpretado y de propósi
     - [Ejercicio 1](#ejercicio-1-2)
     - [Ejercicio 2](#ejercicio-2-2)
     - [Ejercicio 3 *(extra)*](#ejercicio-3-extra-1)
+- [Licencia](#licencia)
 
 # Preparación del entorno de trabajo
 A lo largo de las prácticas se pedirá que pruebes fragmentos de código y que realices ejercicios. Para ello, crea un directorio temporal y abrelo con Visual Studio Code. A medida que las prácticas avancen, crea tantos archivos `.py` en ese directorio como consideres necesario. El objetivo es realizar pruebas rápidas, por lo que no es necesario crear un proyecto formal ni una estructura de archivos organizada.
@@ -446,3 +447,8 @@ for i in range(1, 11):
 ```
 
 </details>
+
+# Licencia
+El material didáctico de este repositorio se distribuye bajo Licencia Internacional Creative Commons Attribution-ShareAlike 4.0. 
+
+Consulta [LICENSE](./LICENSE) para más detalles.
